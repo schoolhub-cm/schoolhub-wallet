@@ -9,6 +9,7 @@ import '../legal/privacy_policy_screen.dart';
 import '../legal/terms_screen.dart';
 import '../legal/security_audit_screen.dart';
 import '../about/about_screen.dart';
+import '../schoolhub/schoolhub_screen.dart';
 import '../../services/wallet_update_service.dart';
 import '../../widgets/update_dialog.dart';
 
@@ -299,6 +300,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
                 child: Column(
                   children: [
+                    ListTile(
+                      leading: const Icon(Icons.school_rounded, color: AppColors.primary),
+                      title: const Text('Espace Scolaire SchoolHub', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),
+                      subtitle: const Text('Lier / Gérer mon compte Parent, Établissement ou Prof', style: TextStyle(fontSize: 12)),
+                      trailing: const Icon(Icons.chevron_right_rounded),
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(builder: (_) => const SchoolHubScreen()),
+                        );
+                      },
+                    ),
+                    const Divider(height: 1, indent: 56),
                     ListTile(
                       leading: const Icon(Icons.verified_user_rounded, color: AppColors.accentGreen),
                       title: const Text('Audit Anti-Arnaque (Grand Livre)', style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14)),

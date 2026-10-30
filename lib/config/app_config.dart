@@ -11,4 +11,11 @@ class AppConfig {
 
   // Pour le dev local via émulateur ou appareil
   static String activeBaseUrl = 'https://schoolhub.cm/wallet/api/v1';
+
+  static String get activeRootUrl {
+    if (activeBaseUrl.contains('/wallet/api/v1')) {
+      return activeBaseUrl.replaceAll('/wallet/api/v1', '');
+    }
+    return baseUrl;
+  }
 }

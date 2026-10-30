@@ -12,6 +12,7 @@ import '../transactions/history_screen.dart';
 import '../profile/profile_screen.dart';
 import '../legal/security_audit_screen.dart';
 import '../about/about_screen.dart';
+import '../schoolhub/schoolhub_screen.dart';
 import '../auth/login_screen.dart';
 import '../../services/wallet_update_service.dart';
 import '../../widgets/update_dialog.dart';
@@ -567,6 +568,55 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ),
                       ),
                       const Icon(Icons.chevron_right_rounded, color: AppColors.accentGreen),
+                    ],
+                  ),
+                ),
+              ),
+              const SizedBox(height: 12),
+
+              // BANNIÈRE ESPACE SCHOOLHUB
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(builder: (_) => const SchoolHubScreen()),
+                  ).then((_) => _loadDashboardData());
+                },
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                      colors: [Color(0xFFEEF2FF), Color(0xFFF5F3FF)],
+                    ),
+                    borderRadius: BorderRadius.circular(16),
+                    border: Border.all(color: const Color(0xFFC7D2FE)),
+                  ),
+                  child: Row(
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(8),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF4F46E5).withOpacity(0.12),
+                          shape: BoxShape.circle,
+                        ),
+                        child: const Icon(Icons.school_rounded, color: Color(0xFF4F46E5), size: 20),
+                      ),
+                      const SizedBox(width: 12),
+                      const Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Espace Scolaire SchoolHub',
+                              style: TextStyle(fontSize: 13, fontWeight: FontWeight.w800, color: AppColors.textDark),
+                            ),
+                            Text(
+                              'Pensions scolaires, abonnements & enfants',
+                              style: TextStyle(fontSize: 11, color: AppColors.textMuted),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const Icon(Icons.chevron_right_rounded, color: Color(0xFF4F46E5)),
                     ],
                   ),
                 ),
